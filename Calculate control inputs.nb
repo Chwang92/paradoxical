@@ -1,0 +1,2602 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[    103956,       2594]
+NotebookOptionsPosition[    101778,       2554]
+NotebookOutlinePosition[    102138,       2570]
+CellTagsIndexPosition[    102095,       2567]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{"(*", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Find", " ", "B_stable", " ", "that", " ", "meets", " ", "G", 
+     RowBox[{"(", "a", ")"}]}], "=", "0"}], ",", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"G", "'"}], 
+     RowBox[{"(", "a", ")"}]}], "<", 
+    RowBox[{"0", " ", "and", " ", "0"}], "<", "n", "<", "1"}]}], 
+  "*)"}]], "Input",
+ CellChangeTimes->{{3.940881852102542*^9, 
+  3.9408819842588167`*^9}},ExpressionUUID->"7efd3672-e8d1-4f89-b1b9-\
+89618668868e"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"\[Gamma]", "=", "4.81"}], ";", 
+  RowBox[{"\[Delta]", "=", "0.0289"}], ";", 
+  RowBox[{"m", "=", "2"}], ";", 
+  RowBox[{"\[Alpha]", "=", "0.0395"}], ";", 
+  RowBox[{"\[Beta]", "=", "0.6"}], ";", 
+  RowBox[{"\[Beta]c", "=", "0.0451"}], ";", 
+  RowBox[{"ka", "=", "1.316"}], ";", 
+  RowBox[{"kb", "=", "0.045"}], ";", 
+  RowBox[{"pr", "=", "1.77"}], ";", 
+  RowBox[{"pc", "=", "1.23"}], ";", 
+  RowBox[{"n1", "=", "2"}], ";", 
+  RowBox[{"n2", "=", "1"}], ";", 
+  RowBox[{"i", "=", "1"}], ";", 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"Fix", " ", "I_n"}], "=", "1"}], ",", " ", 
+    RowBox[{"i", "=", "1"}]}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{"W", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"NSolve", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{
+          RowBox[{
+           RowBox[{"\[Gamma]", "*", "n"}], "-", 
+           RowBox[{"\[Delta]", "*", "a"}]}], "\[Equal]", "0"}], ",", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"(", 
+               RowBox[{"\[Alpha]", "+", "\[Beta]"}], ")"}], "*", 
+              FractionBox[
+               RowBox[{
+                SuperscriptBox[
+                 RowBox[{"(", 
+                  RowBox[{
+                   RowBox[{"ka", "*", "a"}], "+", "1"}], ")"}], "n1"], "+", 
+                SuperscriptBox[
+                 RowBox[{"(", 
+                  FractionBox["pr", "\[Delta]"], ")"}], "n1"]}], 
+               RowBox[{
+                RowBox[{
+                 SuperscriptBox[
+                  RowBox[{"(", 
+                   RowBox[{
+                    RowBox[{"ka", "*", "a"}], "+", "1"}], ")"}], "n1"], "*", 
+                 RowBox[{"(", 
+                  RowBox[{
+                   RowBox[{"kb", "*", "b"}], "+", "1"}], ")"}]}], "+", 
+                SuperscriptBox[
+                 RowBox[{"(", 
+                  FractionBox["pr", "\[Delta]"], ")"}], "n1"]}]]}], "-", 
+             "\[Beta]", "-", 
+             RowBox[{"\[Beta]c", "*", 
+              FractionBox[
+               RowBox[{"i", "*", 
+                SuperscriptBox[
+                 RowBox[{"(", 
+                  FractionBox["pc", "\[Delta]"], ")"}], "n2"]}], 
+               RowBox[{
+                RowBox[{"i", "*", 
+                 SuperscriptBox[
+                  RowBox[{"(", 
+                   FractionBox["pc", "\[Delta]"], ")"}], "n2"]}], "+", 
+                SuperscriptBox[
+                 RowBox[{"(", 
+                  RowBox[{
+                   RowBox[{"ka", "*", "a"}], "+", "1"}], ")"}], "n2"]}]]}]}], 
+            ")"}], "*", "n", "*", 
+           RowBox[{"(", 
+            RowBox[{"1", "-", 
+             RowBox[{"n", "^", "m"}]}], ")"}]}], "\[Equal]", "0"}], ",", 
+         RowBox[{"y", "\[Equal]", "b"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"a", ",", "n", ",", "y"}], "}"}]}], "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"b", ",", "0", ",", "5", ",", "0.02"}], "}"}]}], "]"}]}], ";", 
+  RowBox[{"(*", 
+   RowBox[{
+   "The", " ", "initial", " ", "range", " ", "of", " ", "B_n", " ", "is", " ",
+     "given", " ", "as", " ", 
+    RowBox[{"(", 
+     RowBox[{"0", ",", "5"}], ")"}]}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{"s1", "=", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"y", ",", "n"}], "}"}], "/.", "W"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.940881999812952*^9, 3.940882035727966*^9}, {
+  3.9408820743941135`*^9, 3.940882132468038*^9}, {3.9408822533118362`*^9, 
+  3.9408822780504804`*^9}, {3.940882697448984*^9, 
+  3.940882708516677*^9}},ExpressionUUID->"feab0595-0d10-4c36-9738-\
+bcf827a051f5"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"a1", "=", 
+  RowBox[{"ListPlot", "[", 
+   RowBox[{"s1", ",", 
+    RowBox[{"PlotStyle", "\[Rule]", 
+     RowBox[{"RGBColor", "[", 
+      RowBox[{"0", ",", "0", ",", "1"}], "]"}]}], ",", 
+    RowBox[{"AxesOrigin", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "0"}], "}"}]}], ",", 
+    RowBox[{"BaseStyle", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"FontWeight", "\[Rule]", "\"\<Bold\>\""}], ",", 
+       RowBox[{"FontSize", "\[Rule]", "8"}]}], "}"}]}], ",", 
+    RowBox[{"PlotRange", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"0", ",", "5"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"-", "0.01"}], ",", "1.01"}], "}"}]}], "}"}]}], ",", 
+    FormBox[
+     RowBox[{"Frame", "\[Rule]", 
+      StyleBox["True",
+       FontSlant->"Italic"]}],
+     TraditionalForm]}], "]"}]}]], "Input",
+ CellLabel->"In[11]:=",ExpressionUUID->"dbdfa99a-8c2b-456f-8634-ef12e4ac7a29"],
+
+Cell[BoxData[
+ GraphicsBox[{{}, {{}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{0., -0.9999999999999952}, {0., 0.9999999999999908}, {0., 
+       0.}, {0., 0.}, {0., 0.022982727668967248`}, {0., 0.02298272766911684}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{0.02, 1.0000000000000058`}, {0.02, -1.0000000000000036`}, {
+       0.02, 0.}, {0.02, 0.023013877052275106`}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{0.04, 1.0000000000000069`}, {0.04, -1.0000000000000053`}, {
+       0.04, 0.}, {0.04, 0.02304517480861393}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{0.06, 1.0000000000000073`}, {0.06, -1.0000000000000053`}, {
+       0.06, 0.}, {0.06, 0.023076622289567923`}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{0.08, -0.9999999999999987}, {0.08, 0.9999999999999978}, {
+       0.08, 0.}, {0.08, 0.023108220865314846`}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{0.1, -1.000000000000003}, {0.1, 1.000000000000002}, {0.1, 
+       0.}, {0.1, 0.023139971924960128`}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{0.12, -0.9999999999999989}, {0.12, 0.9999999999999978}, {
+       0.12, 0.}, {0.12, 0.023171876876914806`}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{0.14, -0.9999999999999983}, {0.14, 0.9999999999999979}, {
+       0.14, 0.}, {0.14, 0.023203937149222306`}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{0.16, -0.9999999999999968}, {0.16, 0.9999999999999954}, {
+       0.16, 0.}, {0.16, 0.023236154189966586`}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{0.18, 1.000000000000007}, {0.18, -1.0000000000000058`}, {
+       0.18, 0.}, {0.18, 0.02326852946762849}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{0.2, -0.9999999999999937}, {0.2, 0.9999999999999882}, {0.2, 
+       0.}, {0.2, 0.02330106447147535}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{0.22, 1.000000000000015}, {0.22, -1.000000000000012}, {0.22, 
+       0.}, {0.22, 0.023333760711958414`}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{0.24, 1.0000000000000093`}, {0.24, -1.000000000000005}, {
+       0.24, 0.}, {0.24, 0.023366619721125897`}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{0.26, -1.000000000000002}, {0.26, 1.0000000000000002`}, {
+       0.26, 0.}, {0.26, 0.02339964305304739}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{0.28, -1.000000000000001}, {0.28, 0.9999999999999998}, {0.28,
+        0.}, {0.28, 0.02343283228421739}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{0.3, -1.0000000000000013`}, {0.3, 0.9999999999999996}, {0.3, 
+       0.}, {0.3, 0.023466189014017567`}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{0.32, 1.0000000000000135`}, {0.32, -1.0000000000000075`}, {
+       0.32, 0.}, {0.32, 0.023499714865144298`}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{0.34, -0.9999999999999981}, {0.34, 0.9999999999999979}, {
+       0.34, 0.}, {0.34, 0.023533411484097856`}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{0.36, -0.9999999999999912}, {0.36, 0.999999999999986}, {0.36,
+        0.}, {0.36, 0.023567280541608254`}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{0.38, -0.9999999999999986}, {0.38, 0.9999999999999934}, {
+       0.38, 0.}, {0.38, 0.023601323733170535`}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{0.4, 1.000000000000007}, {0.4, -1.0000000000000024`}, {0.4, 
+       0.}, {0.4, 0.023635542779496057`}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{0.42, -0.9999999999999954}, {0.42, 0.9999999999999902}, {
+       0.42, 0.}, {0.42, 0.023669939427055284`}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{0.44, -0.9999999999999974}, {0.44, 0.9999999999999919}, {
+       0.44, 0.}, {0.44, 0.02370451544856858}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{0.46, 1.000000000000019}, {0.46, -1.000000000000012}, {0.46, 
+       0.}, {0.46, 0.023739272643561696`}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{0.48, -0.9999999999999938}, {0.48, 0.999999999999987}, {0.48,
+        0.}, {0.48, 0.023774212838901663`}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{0.5, 1.0000000000000298`}, {0.5, -1.000000000000014}, {0.5, 
+       0.}, {0.5, 0.02380933788936863}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{0.52, 1.000000000000019}, {0.52, -1.0000000000000167`}, {
+       0.52, 0.}, {0.52, 0.02384464967822075}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{0.54, -0.999999999999994}, {0.54, 0.9999999999999755}, {0.54,
+        0.}, {0.54, 0.02388015011779819}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{0.56, -1.0000000000000038`}, {0.56, 0.9999999999999999}, {
+       0.56, 0.}, {0.56, 0.023915841150124035`}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{0.58, 1.000000000000016}, {0.58, -1.0000000000000144`}, {
+       0.58, 0.}, {0.58, 0.02395172474752403}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{0.6, -1.0000000000000013`}, {0.6, 0.9999999999999954}, {0.6, 
+       0.}, {0.6, 0.023987802913278917`}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{0.62, -0.9999999999999953}, {0.62, 0.9999999999999802}, {
+       0.62, 0.}, {0.62, 0.0240240776822687}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{0.64, -1.0000000000000018`}, {0.64, 0.999999999999994}, {
+       0.64, 0.}, {0.64, 0.02406055112166363}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{0.66, -0.9999999999999976}, {0.66, 0.9999999999999892}, {
+       0.66, 0.}, {0.66, 0.024097225331584093`}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{0.68, -0.9999999999999949}, {0.68, 0.9999999999999727}, {
+       0.68, 0.}, {0.68, 0.024134102445861203`}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{0.7000000000000001, -1.0000000000000047`}, {
+       0.7000000000000001, 0.9999999999999987}, {0.7000000000000001, 0.}, {
+       0.7000000000000001, 0.024171184632736733`}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{0.72, -0.9999999999999919}, {0.72, 0.9999999999999706}, {
+       0.72, 0.}, {0.72, 0.02420847409560636}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{0.74, -0.9999999999999906}, {0.74, 0.9999999999999628}, {
+       0.74, 0.}, {0.74, 0.024245973073821217`}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{0.76, -1.0000000000000069`}, {0.76, 0.9999999999999775}, {
+       0.76, 0.}, {0.76, 0.02428368384347705}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{0.78, -1.0000000000000109`}, {0.78, 0.9999999999999877}, {
+       0.78, 0.}, {0.78, 0.024321608718198537`}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{0.8, -1.0000000000000093`}, {0.8, 1.0000000000000007`}, {0.8,
+        0.}, {0.8, 0.024359750050016844`}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{0.8200000000000001, -1.0000000000000013`}, {
+       0.8200000000000001, 0.9999999999999609}, {0.8200000000000001, 0.}, {
+       0.8200000000000001, 0.024398110230217433`}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{0.84, -0.9999999999999978}, {0.84, 0.9999999999999629}, {
+       0.84, 0.}, {0.84, 0.024436691690224787`}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{0.86, -1.0000000000000022`}, {0.86, 0.9999999999999543}, {
+       0.86, 0.}, {0.86, 0.024475496902529027`}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{0.88, -0.9999999999999998}, {0.88, 0.9999999999999623}, {
+       0.88, 0.}, {0.88, 0.024514528381599524`}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{0.9, -1.0000000000000158`}, {0.9, 0.9999999999999918}, {0.9, 
+       0.}, {0.9, 0.02455378868488389}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{0.92, -1.0000000000000149`}, {0.92, 0.9999999999999853}, {
+       0.92, 0.}, {0.92, 0.02459328041378858}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{0.9400000000000001, -0.9999999999999959}, {
+       0.9400000000000001, 0.9999999999999376}, {0.9400000000000001, 0.}, {
+       0.9400000000000001, 0.024633006214698962`}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{0.96, -0.9999999999999998}, {0.96, 0.9999999999999214}, {
+       0.96, 0.}, {0.96, 0.024672968780031942`}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{0.98, -0.9999999999999976}, {0.98, 0.999999999999906}, {0.98,
+        0.}, {0.98, 0.024713170849340042`}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{1., -1.000000000000011}, {1., 0.9999999999999442}, {1., 
+       0.}, {1., 0.0247536152104158}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{1.02, 1.0000000000000122`}, {1.02, -1.000000000000007}, {
+       1.02, 0.}, {1.02, 0.024794304700448487`}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{1.04, 1.0000000000000284`}, {1.04, -1.0000000000000027`}, {
+       1.04, 0.}, {1.04, 0.02483524220722018}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{1.06, 1.0000000000000295`}, {1.06, -1.000000000000007}, {
+       1.06, 0.}, {1.06, 0.024876430670301056`}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{1.08, -1.000000000000002}, {1.08, 1.0000000000000002`}, {
+       1.08, 0.}, {1.08, 0.02491787308235352}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{1.1, -0.999999999999994}, {1.1, 0.9999999999999702}, {1.1, 
+       0.}, {1.1, 0.02495957249039868}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{1.12, 1.0000000000000193`}, {1.12, -1.000000000000003}, {
+       1.12, 0.}, {1.12, 0.02500153199717194}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{1.1400000000000001`, -0.9999999999999868}, {
+       1.1400000000000001`, 0.9999999999998841}, {1.1400000000000001`, 0.}, {
+       1.1400000000000001`, 0.025043754762498056`}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{1.16, -0.9999999999999969}, {1.16, 0.9999999999999605}, {
+       1.16, 0.}, {1.16, 0.025086244004737517`}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{1.18, 1.0000000000001692`}, {1.18, -1.0000000000000122`}, {
+       1.18, 0.}, {1.18, 0.025129003002237544`}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{1.2, 1.000000000000216}, {1.2, -1.000000000000014}, {1.2, 
+       0.}, {1.2, 0.025172035094854633`}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{1.22, 1.0000000000001132`}, {1.22, -1.0000000000000087`}, {
+       1.22, 0.}, {1.22, 0.025215343685530144`}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{1.24, 1.0000000000005984`}, {1.24, -1.0000000000000182`}, {
+       1.24, 0.}, {1.24, 0.025258932241905206`}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{1.26, -0.9999999999999801}, {1.26, 0.9999999999985258}, {
+       1.26, 0.8596001576711751}, {1.26, 0.5969505660785651}, {1.26, 0.}, {
+       1.26, 0.02530280429800556}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{1.28, 1.1476950711535143`}, {1.28, 1.0000000000002491`}, {
+       1.28, -1.0000000000000056`}, {1.28, 0.4951301047060282}, {1.28, 0.}, {
+       1.28, 0.025346963455930422`}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{1.3, 1.4291934550679393`}, {1.3, 1.0000000000001172`}, {
+       1.3, -0.9999999999999908}, {1.3, 0.44563863216289684`}, {1.3, 0.}, {
+       1.3, 0.025391413387683488`}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{1.32, 1.75996637461572}, {1.32, -1.0000000000000255`}, {1.32,
+        0.9999999999997303}, {1.32, 0.4117986170958794}, {1.32, 0.}, {1.32, 
+       0.025436157836985555`}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{1.34, 2.1793269392972183`}, {1.34, -1.0000000000000095`}, {
+       1.34, 0.9999999999998644}, {1.34, 0.3859778455581316}, {1.34, 0.}, {
+       1.34, 0.02548120062119406}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{1.36, 2.746642152254226}, {1.36, -1.0000000000000087`}, {
+       1.36, 0.9999999999999458}, {1.36, 0.3651055849557192}, {1.36, 0.}, {
+       1.36, 0.0255265456332659}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{1.3800000000000001`, 3.5740647468543556`}, {
+       1.3800000000000001`, -1.0000000000000058`}, {1.3800000000000001`, 
+       0.9999999999999761}, {1.3800000000000001`, 0.3476110655988974}, {
+       1.3800000000000001`, 0.}, {1.3800000000000001`, 0.02557219684379351}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{1.4000000000000001`, 4.9135997153052875`}, {
+       1.4000000000000001`, 1.0000000000039981`}, {
+       1.4000000000000001`, -0.9999999999999925}, {1.4000000000000001`, 
+       0.33257540600907376`}, {1.4000000000000001`, 0.}, {1.4000000000000001`,
+        0.025618158303112714`}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{1.42, 7.4844594023083015`}, {1.42, 1.000000000003416}, {
+       1.42, -0.9999999999999939}, {1.42, 0.3194120341277597}, {1.42, 0.}, {
+       1.42, 0.02566443414348625}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{1.44, 14.509267382898322`}, {1.44, 1.0000000000032927`}, {
+       1.44, -0.9999999999999941}, {1.44, 0.30772262786859267`}, {1.44, 0.}, {
+       1.44, 0.025711028581358236`}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{1.46, 116.21061415380409`}, {1.46, 1.0000000000027423`}, {
+       1.46, -0.9999999999999956}, {1.46, 0.2972238871884097}, {1.46, 0.}, {
+       1.46, 0.025757945919669907`}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{1.48, -20.84155714586591}, {1.48, 1.0000000000028995`}, {
+       1.48, -0.9999999999999942}, {1.48, 0.2877069260491847}, {1.48, 0.}, {
+       1.48, 0.02580519055030727}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{1.5, -9.867979724137593}, {1.5, 1.0000000000023743`}, {
+       1.5, -0.9999999999999788}, {1.5, 0.27901320921785683`}, {1.5, 0.}, {
+       1.5, 0.025852766956594643`}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{1.52, 1.0000000000001785`}, {1.52, -0.999999999999994}, {
+       1.52, 0.27101952605057306`}, {1.52, 0.}, {1.52, 
+       0.025900679715847894`}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{1.54, -5.002817429926341}, {1.54, 1.0000000000001874`}, {
+       1.54, -0.9999999999999828}, {1.54, 0.2636281997906415}, {1.54, 0.}, {
+       1.54, 0.02594893350211422}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{1.56, -4.070449940440674}, {1.56, 1.000000000000173}, {
+       1.56, -0.9999999999999927}, {1.56, 0.25676047929093937`}, {1.56, 0.}, {
+       1.56, 0.025997533088929718`}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{1.58, -3.4548686445813517`}, {1.58, 1.0000000000001255`}, {
+       1.58, -1.000000000000011}, {1.58, 0.250351944127919}, {1.58, 0.}, {
+       1.58, 0.026046483352212556`}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{1.6, -3.0175204005875855`}, {1.6, 1.0000000000001132`}, {
+       1.6, -0.9999999999999942}, {1.6, 0.24434922737835596`}, {1.6, 0.}, {
+       1.6, 0.026095789273233708`}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{1.62, -2.6904172224581306`}, {1.62, -1.000000000000061}, {
+       1.62, 1.0000000000000258`}, {1.62, 0.23870762616673638`}, {1.62, 0.}, {
+       1.62, 0.026145455941747903`}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{1.6400000000000001`, -2.436280418706747}, {
+       1.6400000000000001`, 1.0000000000000837`}, {
+       1.6400000000000001`, -1.000000000000036}, {1.6400000000000001`, 
+       0.2333893256276492}, {1.6400000000000001`, 0.}, {1.6400000000000001`, 
+       0.0261954885591998}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{1.6600000000000001`, -2.232957201290843}, {
+       1.6600000000000001`, 1.0000000000000668`}, {
+       1.6600000000000001`, -1.0000000000000413`}, {1.6600000000000001`, 
+       0.22836205619381578`}, {1.6600000000000001`, 0.}, {1.6600000000000001`,
+        0.026245892442070696`}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{1.68, -2.0664529371980023`}, {1.68, 1.0000000000001052`}, {
+       1.68, -1.0000000000000138`}, {1.68, 0.22359806303820032`}, {1.68, 
+       0.}, {1.68, 0.026296673025325446`}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{1.7, -1.9274905297589275`}, {1.7, 1.000000000000108}, {
+       1.7, -1.0000000000000053`}, {1.7, 0.21907330433504957`}, {1.7, 0.}, {
+       1.7, 0.02634783586606948}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{1.72, -1.8096758791197798`}, {1.72, -1.0000000000000417`}, {
+       1.72, 1.0000000000000209`}, {1.72, 0.2147668198945425}, {1.72, 0.}, {
+       1.72, 0.026399386647221607`}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{1.74, -1.7084578380063749`}, {1.74, -1.0000000000000444`}, {
+       1.74, 0.9999999999999989}, {1.74, 0.2106602284542607}, {1.74, 0.}, {
+       1.74, 0.026451331181444476`}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{1.76, -1.620508230304052}, {1.76, 1.0000000000000313`}, {
+       1.76, -0.9999999999999832}, {1.76, 0.20673732337581716`}, {1.76, 0.}, {
+       1.76, 0.026503675415192097`}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{1.78, -1.5433364586205085`}, {1.78, 1.0000000000000284`}, {
+       1.78, -1.000000000000009}, {1.78, 0.2029837444895294}, {1.78, 0.}, {
+       1.78, 0.026556425432874606`}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{1.8, -1.4750412712177923`}, {1.8, -1.0000000000000968`}, {
+       1.8, 0.9999999999999791}, {1.8, 0.1993867094954604}, {1.8, 0.}, {1.8, 
+       0.026609587461267025`}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{1.82, -1.4141459167392614`}, {1.82, -1.000000000000279}, {
+       1.82, 1.0000000000000295`}, {1.82, 0.19593479240264286`}, {1.82, 0.}, {
+       1.82, 0.026663167874030443`}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{1.84, -1.3594857313972164`}, {1.84, -1.0000000000006093`}, {
+       1.84, 0.9999999999999986}, {1.84, 0.19261773945614702`}, {1.84, 0.}, {
+       1.84, 0.02671717319646523}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{1.86, -1.3101296761729742`}, {1.86, -1.0000000000003673`}, {
+       1.86, 0.9999999999999997}, {1.86, 0.1894263151911703}, {1.86, 0.}, {
+       1.86, 0.026771610110410023`}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{1.8800000000000001`, -1.2653244313359853`}, {
+       1.8800000000000001`, -1.0000000000006293`}, {1.8800000000000001`, 
+       1.0000000000000007`}, {1.8800000000000001`, 0.18635217288688533`}, {
+       1.8800000000000001`, 0.}, {1.8800000000000001`, 
+       0.026826485459411926`}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{1.9000000000000001`, -1.2244538256177304`}, {
+       1.9000000000000001`, 1.0000000000000064`}, {
+       1.9000000000000001`, -0.9999999999999819}, {1.9000000000000001`, 
+       0.1833877449243371}, {1.9000000000000001`, 0.}, {1.9000000000000001`, 
+       0.02688180625402637}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{1.92, -1.1870089052544845`}, {1.92, 1.000000000000021}, {
+       1.92, -0.9999999999999476}, {1.92, 0.18052614949057477`}, {1.92, 0.}, {
+       1.92, 0.026937579677431517`}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{1.94, -1.1525655222857065`}, {1.94, -1.0000000000000424`}, {
+       1.94, 0.9999999999999932}, {1.94, 0.17776111079164858`}, {1.94, 0.}, {
+       1.94, 0.026993813091211627`}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{1.96, -1.1207673256958843`}, {1.96, 1.0000000000000102`}, {
+       1.96, -0.9999999999999941}, {1.96, 0.1750868904956717}, {1.96, 0.}, {
+       1.96, 0.02705051404142343}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{1.98, -1.091312693646967}, {1.98, 1.0000000000000129`}, {
+       1.98, -0.9999999999999214}, {1.98, 0.17249822856312502`}, {1.98, 0.}, {
+       1.98, 0.02710769026491726}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{2., -1.0639445803495458`}, {2., -1.0000000000004128`}, {2., 
+       0.9999999999999689}, {2., 0.16999029196500562`}, {2., 0.}, {2., 
+       0.027165349695937358`}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{2.02, -1.0384425457946003`}, {2.02, -1.0000000000002243`}, {
+       2.02, 1.0000000000000049`}, {2.02, 0.16755863006142466`}, {2.02, 0.}, {
+       2.02, 0.027223500472999908`}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{2.04, -1.0146164393375818`}, {2.04, 1.000000000000011}, {
+       2.04, -0.9999999999991976}, {2.04, 0.16519913563039076`}, {2.04, 0.}, {
+       2.04, 0.027282150946115875`}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{2.06, 1.0000000000000047`}, {2.06, -0.9923013498341366}, {
+       2.06, -0.992301349833706}, {2.06, 0.1629080107107593}, {2.06, 0.}, {
+       2.06, 0.027341309684289196`}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{2.08, 0.9999999999999877}, {2.08, -0.9999999999994812}, {
+       2.08, -0.9713535353180344}, {2.08, 0.1606817365640379}, {2.08, 0.}, {
+       2.08, 0.027400985483387107`}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{2.1, 0.9999999999999858}, {2.1, -0.999999999999806}, {
+       2.1, -0.9516471173160421}, {2.1, 0.1585170471739952}, {2.1, 0.}, {2.1, 
+       0.027461187374364922`}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{2.12, -1.000000000000272}, {2.12, 1.0000000000000253`}, {
+       2.12, -0.9330713771092436}, {2.12, 0.1564109057965613}, {2.12, 0.}, {
+       2.12, 0.027521924631876336`}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{2.14, -1.0000000000001605`}, {2.14, 1.0000000000000133`}, {
+       2.14, -0.91552852969809}, {2.14, 0.15436048414885745`}, {2.14, 0.}, {
+       2.14, 0.027583206783281827`}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{2.16, 0.9999999999999966}, {2.16, -0.9999999999999521}, {
+       2.16, -0.8989318797053031}, {2.16, 0.15236314388927513`}, {2.16, 0.}, {
+       2.16, 0.02764504361806917}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{2.18, -1.0000000000000495`}, {2.18, 1.000000000000006}, {
+       2.18, -0.8832042847995243}, {2.18, 0.1504164200931788}, {2.18, 0.}, {
+       2.18, 0.027707445197763542`}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{2.2, 0.9999999999999952}, {2.2, -0.9999999999999708}, {
+       2.2, -0.8682768683487144}, {2.2, 0.14851800647196334`}, {2.2, 0.}, {
+       2.2, 0.027770421866262225`}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{2.22, -1.0000000000000457`}, {2.22, 1.0000000000000082`}, {
+       2.22, -0.8540879353203247}, {2.22, 0.14666574211958056`}, {2.22, 0.}, {
+       2.22, 0.027833984260727654`}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{2.24, 0.9999999999999846}, {2.24, -0.9999999999999047}, {
+       2.24, -0.8405820549002483}, {2.24, 0.14485759960134495`}, {2.24, 0.}, {
+       2.24, 0.027898143322989646`}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{2.2600000000000002`, -1.000000000000042}, {
+       2.2600000000000002`, 1.0000000000000078`}, {
+       2.2600000000000002`, -0.8277092806228747}, {2.2600000000000002`, 
+       0.14309167422527153`}, {2.2600000000000002`, 0.}, {2.2600000000000002`,
+        0.02796291031149416}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{2.2800000000000002`, -1.000000000000022}, {
+       2.2800000000000002`, 1.000000000000007}, {
+       2.2800000000000002`, -0.815424484512532}, {2.2800000000000002`, 
+       0.14136617435801335`}, {2.2800000000000002`, 0.}, {2.2800000000000002`,
+        0.02802829681388233}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{2.3000000000000003`, -1.0000000000000973`}, {
+       2.3000000000000003`, 0.999999999999997}, {
+       2.3000000000000003`, -0.8036867862229765}, {2.3000000000000003`, 
+       0.1396794126655527}, {2.3000000000000003`, 0.}, {2.3000000000000003`, 
+       0.028094314760244068`}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{2.32, -1.0000000000002702`}, {2.32, 1.0000000000000109`}, {
+       2.32, -0.792459061705231}, {2.32, 0.1380297981750621}, {2.32, 0.}, {
+       2.32, 0.028160976436960448`}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{2.34, -1.0000000000002196`}, {2.34, 1.0000000000000158`}, {
+       2.34, -0.7817075187481101}, {2.34, 0.13641582906693178`}, {2.34, 0.}, {
+       2.34, 0.028228294501348745`}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{2.36, -1.0000000000003195`}, {2.36, 0.9999999999999918}, {
+       2.36, -0.7714013289894532}, {2.36, 0.13483608611791476`}, {2.36, 0.}, {
+       2.36, 0.028296281997022343`}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{2.38, -1.000000000000246}, {2.38, 1.000000000000001}, {
+       2.38, -0.7615123078077567}, {2.38, 0.13328922672590976`}, {2.38, 0.}, {
+       2.38, 0.028364952370127906`}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{2.4, -1.0000000000000642`}, {2.4, 1.0000000000000058`}, {
+       2.4, -0.7520146349665364}, {2.4, 0.13177397945550437`}, {2.4, 0.}, {
+       2.4, 0.028434319486395528`}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{2.42, -1.0000000000000493`}, {2.42, 1.0000000000000009`}, {
+       2.42, -0.7428846100721093}, {2.42, 0.1302891390504584}, {2.42, 0.}, {
+       2.42, 0.02850439764915523}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{2.44, 0.9999999999999886}, {2.44, -0.9999999999999878}, {
+       2.44, -0.7341004378763948}, {2.44, 0.12883356186586767`}, {2.44, 0.}, {
+       2.44, 0.028575201618294098`}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{2.46, -1.0000000000000893`}, {2.46, 1.0000000000000149`}, {
+       2.46, -0.7256420392514188}, {2.46, 0.12740616167796043`}, {2.46, 0.}, {
+       2.46, 0.02864674663037748}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{2.48, -1.0000000000000682`}, {2.48, 1.0000000000000007`}, {
+       2.48, -0.7174908843166216}, {2.48, 0.12600590583459884`}, {2.48, 0.}, {
+       2.48, 0.02871904841975696}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{2.5, -1.000000000000026}, {2.5, 0.9999999999999988}, {
+       2.5, -0.7096298447410806}, {2.5, 0.12463181171321383`}, {2.5, 0.}, {
+       2.5, 0.028792123241010974`}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{2.52, -1.000000000000052}, {2.52, 1.0000000000000029`}, {
+       2.52, -0.7020430626934758}, {2.52, 0.12328294345702306`}, {2.52, 0.}, {
+       2.52, 0.028865987892626798`}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{2.54, -1.0000000000000056`}, {2.54, 0.9999999999999973}, {
+       2.54, -0.694715834285606}, {2.54, 0.12195840896328693`}, {2.54, 0.}, {
+       2.54, 0.028940659742031794`}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{2.56, -1.0000000000000457`}, {2.56, 1.0000000000000135`}, {
+       2.56, -0.6876345056684474}, {2.56, 0.12065735710007582`}, {2.56, 0.}, {
+       2.56, 0.029016156752183903`}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{2.58, 0.9999999999999987}, {2.58, -0.9999999999999921}, {
+       2.58, -0.6807863802040558}, {2.58, 0.11937897513075313`}, {2.58, 0.}, {
+       2.58, 0.029092497509715032`}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{2.6, -1.000000000000014}, {2.6, 1.0000000000000027`}, {
+       2.6, -0.6741596353552839}, {2.6, 0.11812248632726285`}, {2.6, 0.}, {
+       2.6, 0.02916970125476265}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{2.62, -1.0000000000000104`}, {2.62, 0.9999999999999987}, {
+       2.62, -0.6677432481251729}, {2.62, 0.11688714775533077`}, {2.62, 0.}, {
+       2.62, 0.029247787912717035`}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{2.64, -0.9999999999999984}, {2.64, 0.9999999999999927}, {
+       2.64, -0.6615269280335024}, {2.64, 0.1156722482164832}, {2.64, 0.}, {
+       2.64, 0.029326778127824006`}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{2.66, 0.9999999999999927}, {2.66, -0.999999999999984}, {
+       2.66, -0.6555010567546127}, {2.66, 0.11447710633292123`}, {2.66, 0.}, {
+       2.66, 0.029406693299035242`}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{2.68, -1.0000000000000036`}, {2.68, 0.9999999999999999}, {
+       2.68, -0.6496566336546216}, {2.68, 0.11330106876306084`}, {2.68, 0.}, {
+       2.68, 0.029487555618102665`}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{2.7, 0.9999999999999953}, {2.7, -0.9999999999999833}, {
+       2.7, -0.6439852265640861}, {2.7, 0.11214350853637911`}, {2.7, 0.}, {
+       2.7, 0.029569388110116022`}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{2.72, -0.9999999999999992}, {2.72, 0.999999999999996}, {
+       2.72, -0.6384789272068385}, {2.72, 0.11100382349736584`}, {2.72, 0.}, {
+       2.72, 0.029652214676794006`}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{2.74, -1.00000000000002}, {2.74, 1.0000000000000075`}, {
+       2.74, -0.6331303107776711}, {2.74, 0.10988143484942609`}, {2.74, 0.}, {
+       2.74, 0.029736060142562786`}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{2.7600000000000002`, 0.9999999999999964}, {
+       2.7600000000000002`, -0.999999999999991}, {
+       2.7600000000000002`, -0.6279323992238977}, {2.7600000000000002`, 0.}, {
+       2.7600000000000002`, 0.10877578579002606`}, {2.7600000000000002`, 
+       0.029820950303880944`}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{2.7800000000000002`, 1.0000000000000013`}, {
+       2.7800000000000002`, -1.0000000000000009`}, {
+       2.7800000000000002`, -0.6228786278395441}, {2.7800000000000002`, 0.}, {
+       2.7800000000000002`, 0.02990691198184076}, {2.7800000000000002`, 
+       0.10768634022965531`}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{2.8000000000000003`, -1.0000000000000044`}, {
+       2.8000000000000003`, 1.0000000000000042`}, {
+       2.8000000000000003`, -0.6179628148280322}, {2.8000000000000003`, 0.}, {
+       2.8000000000000003`, 0.029993973078540882`}, {2.8000000000000003`, 
+       0.10661258158729796`}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{2.82, 0.9999999999999903}, {2.82, -0.9999999999999747}, {
+       2.82, -0.6131791335285851}, {2.82, 0.}, {2.82, 
+       0.030082162637360566`}, {2.82, 0.10555401165603683`}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{2.84, -1.000000000000006}, {2.84, 1.0000000000000016`}, {
+       2.84, -0.6085220870380494}, {2.84, 0.}, {2.84, 
+       0.030171510907702002`}, {2.84, 0.10451014953276183`}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{2.86, -1.0000000000000038`}, {2.86, 1.0000000000000036`}, {
+       2.86, -0.6039864849895202}, {2.86, 0.}, {2.86, 
+       0.030262049414315297`}, {2.86, 0.10348053060648109`}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{2.88, -1.0000000000000107`}, {2.88, 1.0000000000000064`}, {
+       2.88, -0.5995674222760479}, {2.88, 0.}, {2.88, 0.03035381103187856}, {
+       2.88, 0.10246470560008734`}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{2.9, 1.0000000000000007`}, {2.9, -0.9999999999999991}, {
+       2.9, -0.5952602595318461}, {2.9, 0.}, {2.9, 0.030446830065203045`}, {
+       2.9, 0.10146223966085459`}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{2.92, 1.0000000000000016`}, {2.92, -0.9999999999999951}, {
+       2.92, -0.5910606052028976}, {2.92, 0.}, {2.92, 0.03054114233553527}, {
+       2.92, 0.1004727114950523}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{2.94, -1.0000000000000029`}, {2.94, 1.0000000000000029`}, {
+       2.94, -0.58696429905783}, {2.94, 0.}, {2.94, 0.030636785273644808`}, {
+       2.94, 0.0994957125427536}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{2.96, 0.9999999999999991}, {2.96, -0.9999999999999984}, {
+       2.96, -0.5829673970052652}, {2.96, 0.}, {2.96, 0.03073379802029275}, {
+       2.96, 0.09853084618858618}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{2.98, -1.000000000000002}, {2.98, 1.000000000000001}, {
+       2.98, -0.57906615709812}, {2.98, 0.}, {2.98, 0.03083222153476836}, {
+       2.98, 0.09757772700495564}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{3., -1.0000000000000024`}, {3., 1.0000000000000007`}, {
+       3., -0.5752570266175098}, {3., 0.}, {3., 0.030932098712416305`}, {3., 
+       0.09663598002388157}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{3.02, -1.0000000000000022`}, {3.02, 1.0000000000000009`}, {
+       3.02, -0.571536630140153}, {3.02, 0.}, {3.02, 0.031033474511951195`}, {
+       3.02, 0.09570524003372136}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{3.04, -1.0000000000000244`}, {3.04, 1.0000000000000144`}, {
+       3.04, -0.5679017585026324}, {3.04, 0.}, {3.04, 
+       0.031136396093586986`}, {3.04, 0.09478515089863028}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{3.06, 0.9999999999999897}, {3.06, -0.9999999999999856}, {
+       3.06, -0.564349358584527}, {3.06, 0.}, {3.06, 0.03124091296926603}, {
+       3.06, 0.09387536489552185}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{3.08, 1.0000000000000004`}, {3.08, -0.9999999999999984}, {
+       3.08, -0.5608765238401733}, {3.08, 0.}, {3.08, 
+       0.031347077165987176`}, {3.08, 0.0929755420668434}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{3.1, 1.0000000000000002`}, {3.1, -0.9999999999999983}, {
+       3.1, -0.557480485515689}, {3.1, 0.}, {3.1, 0.0314549434040839}, {3.1, 
+       0.0920853495849524}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{3.12, 0.9999999999999942}, {3.12, -0.9999999999999927}, {
+       3.12, -0.5541586044936874}, {3.12, 0.}, {3.12, 
+       0.031564569291655506`}, {3.12, 0.09120446112514612}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{3.14, 1.000000000000002}, {3.14, -0.9999999999999998}, {
+       3.14, -0.5509083637139488}, {3.14, 0.}, {3.14, 0.03167601553746652}, {
+       3.14, 0.09033255624358713}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{3.16, -1.000000000000001}, {3.16, 0.9999999999999982}, {
+       3.16, -0.5477273611229476}, {3.16, 0.}, {3.16, 
+       0.031789346184037115`}, {3.16, 0.08946931975682192}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{3.18, -1.0000000000000056`}, {3.18, 1.0000000000000036`}, {
+       3.18, -0.5446133031093423}, {3.18, 0.}, {3.18, 
+       0.031904628863632274`}, {3.18, 0.08861444111876664}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{3.2, 0.9999999999999959}, {3.2, -0.9999999999999921}, {
+       3.2, -0.5415639983869335}, {3.2, 0.}, {3.2, 0.032021935079766736`}, {
+       3.2, 0.0877676137914548}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{3.22, -1.000000000000003}, {3.22, 1.0000000000000029`}, {
+       3.22, -0.5385773522895049}, {3.22, 0.}, {3.22, 0.03214134051746531}, {
+       3.22, 0.08692853460491587}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{3.24, 0.9999999999999956}, {3.24, -0.9999999999999951}, {
+       3.24, -0.5356513614456346}, {3.24, 0.}, {3.24, 0.03226292538591088}, {
+       3.24, 0.08609690310161326}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{3.2600000000000002`, -1.0000000000000069`}, {
+       3.2600000000000002`, 1.0000000000000024`}, {
+       3.2600000000000002`, -0.5327841088039553}, {3.2600000000000002`, 0.}, {
+       3.2600000000000002`, 0.03238677479761604}, {3.2600000000000002`, 
+       0.08527242086017818}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{3.2800000000000002`, 1.0000000000000009`}, {
+       3.2800000000000002`, -0.9999999999999969}, {
+       3.2800000000000002`, -0.5299737589823933}, {3.2800000000000002`, 0.}, {
+       3.2800000000000002`, 0.03251297918915348}, {3.2800000000000002`, 
+       0.08445479079254749}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{3.3000000000000003`, 0.9999999999999991}, {
+       3.3000000000000003`, -0.9999999999999957}, {
+       3.3000000000000003`, -0.5272185539166476}, {3.3000000000000003`, 0.}, {
+       3.3000000000000003`, 0.032641634788900684`}, {3.3000000000000003`, 
+       0.08364371640807974}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{3.3200000000000003`, 0.9999999999999944}, {
+       3.3200000000000003`, -0.9999999999999895}, {
+       3.3200000000000003`, -0.524516808785915}, {3.3200000000000003`, 0.}, {
+       3.3200000000000003`, 0.032772844138472736`}, {3.3200000000000003`, 
+       0.08283890103720566}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{3.34, 0.9999999999999978}, {3.34, -0.9999999999999962}, {
+       3.34, -0.521866908195077}, {3.34, 0.}, {3.34, 0.03290671667555403}, {
+       3.34, 0.08204004700612104}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{3.36, 0.9999999999999983}, {3.36, -0.999999999999994}, {
+       3.36, -0.5192673025948704}, {3.36, 0.}, {3.36, 0.03304336938704261}, {
+       3.36, 0.08124685475290713}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{3.38, -1.0000000000000036`}, {3.38, 1.000000000000003}, {
+       3.38, -0.5167165049227149}, {3.38, 0.}, {3.38, 0.03318292754323052}, {
+       3.38, 0.0804590218736336}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{3.4, 0.9999999999999903}, {3.4, -0.999999999999985}, {
+       3.4, -0.5142130874484881}, {3.4, 0.}, {3.4, 0.03332552552553202}, {3.4,
+        0.079676242085457}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{3.42, 0.9999999999999937}, {3.42, -0.9999999999999923}, {
+       3.42, -0.511755678810666}, {3.42, 0.}, {3.42, 0.033471307762638854`}, {
+       3.42, 0.07889820409074318}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{3.44, -1.0000000000000024`}, {3.44, 1.0000000000000027`}, {
+       3.44, -0.5093429612296192}, {3.44, 0.}, {3.44, 
+       0.033620429793087325`}, {3.44, 0.07812459032480583}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{3.46, 0.9999999999999994}, {3.46, -0.9999999999999986}, {
+       3.46, -0.5069736678857247}, {3.46, 0.}, {3.46, 
+       0.033773059475265405`}, {3.46, 0.07735507556429107}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{3.48, 0.9999999999999953}, {3.48, -0.9999999999999933}, {
+       3.48, -0.5046465804509055}, {3.48, 0.}, {3.48, 0.03392937837105058}, {
+       3.48, 0.07658932537058105}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{3.5, 0.9999999999999978}, {3.5, -0.9999999999999978}, {
+       3.5, -0.5023605267633087}, {3.5, 0.}, {3.5, 0.03408958333401458}, {3.5,
+        0.07582699433640598}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{3.52, 1.0000000000000002`}, {3.52, -0.9999999999999999}, {
+       3.52, -0.5001143786354448}, {3.52, 0.}, {3.52, 0.03425388834027328}, {
+       3.52, 0.07506772409728966}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{3.54, 0.9999999999999932}, {3.54, -0.9999999999999907}, {
+       3.54, -0.49790704978684686`}, {3.54, 0.}, {3.54, 
+       0.03442252661317997}, {3.54, 0.07431114106036979}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{3.56, 0.9999999999999987}, {3.56, -0.9999999999999964}, {
+       3.56, -0.4957374938931302}, {3.56, 0.}, {3.56, 
+       0.034595753072941604`}, {3.56, 0.07355685379284929}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{3.58, 0.9999999999999938}, {3.58, -0.9999999999999927}, {
+       3.58, -0.49360470274372636`}, {3.58, 0.}, {3.58, 
+       0.03477384725139869}, {3.58, 0.07280444999765286}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{3.6, 0.9999999999999912}, {3.6, -0.9999999999999865}, {
+       3.6, -0.4915077045013896}, {3.6, 0.}, {3.6, 0.03495711666812399}, {3.6,
+        0.07205349298611687}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{3.62, 1.000000000000001}, {3.62, -1.0000000000000002`}, {
+       3.62, -0.48944556205686}, {3.62, 0.}, {3.62, 0.03514590085386272}, {
+       3.62, 0.07130351753358735}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{3.64, 0.9999999999999961}, {3.64, -0.9999999999999943}, {
+       3.64, -0.4874173714726798}, {3.64, 0.}, {3.64, 0.03534057613663567}, {
+       3.64, 0.0705540249726528}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{3.66, 1.0000000000000002`}, {3.66, -0.9999999999999989}, {
+       3.66, -0.48542226051051945`}, {3.66, 0.}, {3.66, 
+       0.03554156138841843}, {3.66, 0.06980447733718613}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{3.68, -0.999999999999999}, {3.68, 0.9999999999999988}, {
+       3.68, -0.4834593872368454}, {3.68, 0.}, {3.68, 
+       0.035749324940948894`}, {3.68, 0.06905429031456735}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{3.7, 1.000000000000001}, {3.7, -0.9999999999999981}, {
+       3.7, -0.48152793870210375`}, {3.7, 0.}, {3.7, 0.03596439306599086}, {
+       3.7, 0.06830282468703767}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{3.72, -1.0000000000000062`}, {3.72, 1.000000000000004}, {
+       3.72, -0.479627129688798}, {3.72, 0.}, {3.72, 0.03618736035135204}, {
+       3.72, 0.06754937583817215}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{3.74, 0.9999999999999972}, {3.74, -0.9999999999999957}, {
+       3.74, -0.477756201524486}, {3.74, 0.}, {3.74, 0.03641890260656951}, {
+       3.74, 0.06679316075319106}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{3.7600000000000002`, -1.0000000000000038`}, {
+       3.7600000000000002`, 1.0000000000000029`}, {
+       3.7600000000000002`, -0.4759144209555607}, {3.7600000000000002`, 0.}, {
+       3.7600000000000002`, 0.036659793056708745`}, {3.7600000000000002`, 
+       0.06603330173166992}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{3.7800000000000002`, 0.9999999999999974}, {
+       3.7800000000000002`, -0.9999999999999967}, {
+       3.7800000000000002`, -0.47410107907840066`}, {3.7800000000000002`, 
+       0.}, {3.7800000000000002`, 0.036910922912095336`}, {
+       3.7800000000000002`, 0.06526880572816182}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{3.8000000000000003`, -1.0000000000000002`}, {
+       3.8000000000000003`, 0.999999999999999}, {
+       3.8000000000000003`, -0.47231549032432246`}, {3.8000000000000003`, 
+       0.}, {3.8000000000000003`, 0.03717332784753234}, {3.8000000000000003`, 
+       0.06449853778690036}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{3.8200000000000003`, 0.9999999999999971}, {
+       3.8200000000000003`, -0.9999999999999946}, {
+       3.8200000000000003`, -0.4705569914953299}, {3.8200000000000003`, 0.}, {
+       3.8200000000000003`, 0.037448222602006}, {3.8200000000000003`, 
+       0.06372118635948672}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{3.84, 1.0000000000000036`}, {3.84, -1.0000000000000029`}, {
+       3.84, -0.46882494084758863`}, {3.84, 0.}, {3.84, 
+       0.037737046956745575`}, {3.84, 0.06293521724741508}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{3.86, -0.9999999999999992}, {3.86, 0.9999999999999983}, {
+       3.86, -0.4671187172199622}, {3.86, 0.}, {3.86, 
+       0.038041528015339485`}, {3.86, 0.06213881124578267}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{3.88, -1.000000000000001}, {3.88, 1.0000000000000002`}, {
+       3.88, -0.46543771920498667`}, {3.88, 0.}, {3.88, 
+       0.038363766438932835`}, {3.88, 0.06132977783473472}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{3.9, -1.0000000000000024`}, {3.9, 1.000000000000002}, {
+       3.9, -0.4637813643598989}, {3.9, 0.}, {3.9, 0.038706358929587736`}, {
+       3.9, 0.06050543262575947}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{3.92, -1.}, {3.92, 0.9999999999999993}, {
+       3.92, -0.4621490884554765}, {3.92, 0.}, {3.92, 
+       0.039072577474176654`}, {3.92, 0.05966241805001702}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{3.94, 0.9999999999999947}, {3.94, -0.999999999999991}, {
+       3.94, -0.4605403447605483}, {3.94, 0.}, {3.94, 
+       0.039466641152897323`}, {3.94, 0.058796431484701164`}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{3.96, 1.0000000000000024`}, {3.96, -1.0000000000000022`}, {
+       3.96, -0.4589546033602306}, {3.96, 0.}, {3.96, 0.03989414647851504}, {
+       3.96, 0.05790179485109339}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{3.98, -1.0000000000000062`}, {3.98, 1.0000000000000047`}, {
+       3.98, -0.45739135050607393`}, {3.98, 0.}, {3.98, 
+       0.04036278613654042}, {3.98, 0.056970735814126365`}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{4., -1.0000000000000029`}, {4., 1.}, {
+       4., -0.455850087996298}, {4., 0.}, {4., 0.040883634057788526`}, {4., 
+       0.05599210265169476}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{4.0200000000000005`, 0.9999999999999962}, {
+       4.0200000000000005`, -0.9999999999999942}, {
+       4.0200000000000005`, -0.45433033258454203`}, {4.0200000000000005`, 
+       0.}, {4.0200000000000005`, 0.04147366004502234}, {4.0200000000000005`, 
+       0.05494884957214342}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{4.04, 0.9999999999999948}, {4.04, -0.9999999999999897}, {
+       4.04, -0.45283161541565187`}, {4.04, 0.}, {4.04, 
+       0.04216131176968748}, {4.04, 0.05381245466373551}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{4.0600000000000005`, 0.9999999999999989}, {
+       4.0600000000000005`, -0.999999999999998}, {
+       4.0600000000000005`, -0.45135348148695026`}, {4.0600000000000005`, 
+       0.}, {4.0600000000000005`, 0.043001525724421036`}, {
+       4.0600000000000005`, 0.05252790888986762}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{4.08, -1.000000000000007}, {4.08, 1.000000000000004}, {
+       4.08, -0.4498954891337804}, {4.08, 0.}, {4.08, 
+       0.044132583038543255`}, {4.08, 0.05095686022439992}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{4.1, -1.0000000000000118`}, {4.1, 1.0000000000000075`}, {
+       4.1, -0.4484572095379458}, {4.1, 0.}, {4.1, 0.046434185491982895`}, {
+       4.1, 0.04821953758901531}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{4.12, -0.9999999999999978}, {4.12, 0.9999999999999978}, {
+       4.12, -0.4470382262579021}, {4.12, 0.}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{4.14, -1.0000000000000044`}, {4.14, 1.000000000000002}, {
+       4.14, -0.44563813477958325`}, {4.14, 0.}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{4.16, -1.0000000000000013`}, {4.16, 1.}, {
+       4.16, -0.44425654208684195`}, {4.16, 0.}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{4.18, 0.999999999999998}, {4.18, -0.999999999999996}, {
+       4.18, -0.44289306625039687`}, {4.18, 0.}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{4.2, -0.999999999999999}, {4.2, 0.9999999999999988}, {
+       4.2, -0.4415473360344845}, {4.2, 0.}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{4.22, -1.0000000000000067`}, {4.22, 1.0000000000000047`}, {
+       4.22, -0.44021899052026087`}, {4.22, 0.}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{4.24, -1.0000000000000018`}, {4.24, 1.0000000000000002`}, {
+       4.24, -0.43890767874511516`}, {4.24, 0.}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{4.26, 0.9999999999999962}, {4.26, -0.9999999999999942}, {
+       4.26, -0.4376130593571579}, {4.26, 0.}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{4.28, -1.0000000000000073`}, {4.28, 1.0000000000000053`}, {
+       4.28, -0.4363348002840878}, {4.28, 0.}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{4.3, 0.9999999999999972}, {4.3, -0.9999999999999968}, {
+       4.3, -0.4350725784158066}, {4.3, 0.}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{4.32, -1.0000000000000018`}, {4.32, 0.9999999999999998}, {
+       4.32, -0.433826079300019}, {4.32, 0.}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{4.34, -0.9999999999999996}, {4.34, 0.9999999999999989}, {
+       4.34, -0.4325949968503209}, {4.34, 0.}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{4.36, 0.9999999999999953}, {4.36, -0.9999999999999937}, {
+       4.36, -0.4313790330660623}, {4.36, 0.}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{4.38, 1.0000000000000016`}, {4.38, -1.0000000000000009`}, {
+       4.38, -0.4301778977635007}, {4.38, 0.}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{4.4, -0.9999999999999984}, {4.4, 0.999999999999998}, {
+       4.4, -0.42899130831773935`}, {4.4, 0.}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{4.42, 1.0000000000000009`}, {4.42, -0.9999999999999994}, {
+       4.42, -0.42781898941482405`}, {4.42, 0.}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{4.44, -1.0000000000000089`}, {4.44, 1.0000000000000073`}, {
+       4.44, -0.426660672813685}, {4.44, 0.}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{4.46, -1.}, {4.46, 0.999999999999998}, {
+       4.46, -0.4255160971173768}, {4.46, 0.}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{4.48, -1.0000000000000022`}, {4.48, 1.000000000000001}, {
+       4.48, -0.4243850075531804}, {4.48, 0.}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{4.5, 0.9999999999999998}, {4.5, -0.9999999999999987}, {
+       4.5, -0.42326715576126317`}, {4.5, 0.}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{4.5200000000000005`, -1.0000000000000036`}, {
+       4.5200000000000005`, 1.0000000000000029`}, {
+       4.5200000000000005`, -0.4221622995913759}, {4.5200000000000005`, 0.}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{4.54, 0.9999999999999992}, {4.54, -0.9999999999999988}, {
+       4.54, -0.4210702029073639}, {4.54, 0.}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{4.5600000000000005`, 1.0000000000000022`}, {
+       4.5600000000000005`, -1.0000000000000016`}, {
+       4.5600000000000005`, -0.4199906353990223}, {4.5600000000000005`, 0.}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{4.58, -1.0000000000000062`}, {4.58, 1.000000000000005}, {
+       4.58, -0.4189233724010851}, {4.58, 0.}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{4.6000000000000005`, -1.0000000000000022`}, {
+       4.6000000000000005`, 1.0000000000000009`}, {
+       4.6000000000000005`, -0.4178681947189305}, {4.6000000000000005`, 0.}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{4.62, -1.0000000000000053`}, {4.62, 1.0000000000000036`}, {
+       4.62, -0.41682488846078775`}, {4.62, 0.}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{4.64, -1.000000000000003}, {4.64, 1.0000000000000022`}, {
+       4.64, -0.4157932448761149}, {4.64, 0.}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{4.66, -1.0000000000000029`}, {4.66, 1.0000000000000029`}, {
+       4.66, -0.4147730601999352}, {4.66, 0.}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{4.68, -1.000000000000002}, {4.68, 1.0000000000000009`}, {
+       4.68, -0.41376413550279234`}, {4.68, 0.}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{4.7, -1.0000000000000013`}, {4.7, 1.000000000000001}, {
+       4.7, -0.41276627654618925`}, {4.7, 0.}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{4.72, 1.0000000000000013`}, {4.72, -1.0000000000000007`}, {
+       4.72, -0.4117792936431885}, {4.72, 0.}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{4.74, -0.9999999999999998}, {4.74, 0.9999999999999996}, {
+       4.74, -0.4108030015240271}, {4.74, 0.}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{4.76, 0.999999999999999}, {4.76, -0.9999999999999981}, {
+       4.76, -0.4098372192064811}, {4.76, 0.}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{4.78, -1.0000000000000024`}, {4.78, 1.0000000000000002`}, {
+       4.78, -0.4088817698708123}, {4.78, 0.}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{4.8, 0.9999999999999949}, {4.8, -0.9999999999999922}, {
+       4.8, -0.40793648073913474`}, {4.8, 0.}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{4.82, 0.9999999999999987}, {4.82, -0.9999999999999978}, {
+       4.82, -0.4070011829589257}, {4.82, 0.}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{4.84, 0.9999999999999992}, {4.84, -0.9999999999999981}, {
+       4.84, -0.4060757114906579}, {4.84, 0.}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{4.86, -0.9999999999999997}, {4.86, 0.9999999999999992}, {
+       4.86, -0.4051599049992196}, {4.86, 0.}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{4.88, -1.0000000000000018`}, {4.88, 1.000000000000001}, {
+       4.88, -0.40425360574913893`}, {4.88, 0.}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{4.9, -1.0000000000000084`}, {4.9, 1.0000000000000049`}, {
+       4.9, -0.403356659503289}, {4.9, 0.}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{4.92, -1.000000000000001}, {4.92, 1.000000000000001}, {
+       4.92, -0.40246891542511243`}, {4.92, 0.}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{4.94, -1.0000000000000009`}, {4.94, 1.0000000000000002`}, {
+       4.94, -0.40159022598405947`}, {4.94, 0.}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{4.96, -1.000000000000005}, {4.96, 1.000000000000004}, {
+       4.96, -0.4007204468642387}, {4.96, 0.}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{4.98, -1.000000000000001}, {4.98, 0.9999999999999996}, {
+       4.98, -0.39985943687610254`}, {4.98, 0.}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, 
+    {RGBColor[0, 0, 1], PointSize[0.004583333333333334], AbsoluteThickness[
+     1.6], 
+     StyleBox[
+      PointBox[{{5., 0.9999999999999988}, {5., -0.9999999999999977}, {
+       5., -0.39900705787102164`}, {5., 0.}}],
+      FontSize->8,
+      FontWeight->"Bold"]}, {}}, {}, {}, {}, {}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->{True, True},
+  AxesLabel->{None, None},
+  AxesOrigin->{0., 0.},
+  BaseStyle->{FontWeight -> "Bold", FontSize -> 8},
+  DisplayFunction->Identity,
+  Frame->{{True, True}, {True, True}},
+  FrameLabel->{{None, None}, {None, None}},
+  FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+  GridLines->{None, None},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  ImagePadding->All,
+  ImageSize->{656., Automatic},
+  Method->{"CoordinatesToolOptions" -> {"DisplayFunction" -> ({
+        (Identity[#]& )[
+         Part[#, 1]], 
+        (Identity[#]& )[
+         Part[#, 2]]}& ), "CopiedValueFunction" -> ({
+        (Identity[#]& )[
+         Part[#, 1]], 
+        (Identity[#]& )[
+         Part[#, 2]]}& )}},
+  PlotRange->{{0, 5}, {-0.01, 1.01}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{0, 0}, {0, 0}},
+  Ticks->{Automatic, Automatic}]], "Output",
+ CellChangeTimes->{
+  3.940882154177944*^9, {3.9408822611553574`*^9, 3.940882286857569*^9}},
+ CellLabel->"Out[11]=",ExpressionUUID->"29aa8bc1-ff3a-420b-9863-007ce8abf69a"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"(*", 
+  RowBox[{"Find", " ", "B_stable", " ", "is", " ", 
+   RowBox[{"(", 
+    RowBox[{"1.26", ",", "4.1"}], ")"}]}], "*)"}]], "Input",
+ CellChangeTimes->{{3.9408822051173725`*^9, 
+  3.940882235815555*^9}},ExpressionUUID->"96022b68-7a4c-4f2c-bbf4-\
+7f33167d8d16"],
+
+Cell[BoxData["\[IndentingNewLine]"], "Input",
+ CellChangeTimes->{
+  3.9408823314233027`*^9},ExpressionUUID->"df9a5116-5fc3-4fd1-9d7b-\
+5dc4aeb19ec0"],
+
+Cell[BoxData[
+ RowBox[{"(*", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+    "Calculate", " ", "tau0", " ", "by", " ", "iteratively", " ", "taking", 
+     " ", "the", " ", "value", " ", "b", " ", "in", " ", "B_stable", " ", 
+     "at", " ", "step", " ", "0.1", " ", 
+     RowBox[{"(", 
+      RowBox[{"or", " ", "0.01"}], ")"}], " ", "and", " ", "find", " ", "the",
+      " ", "b", " ", "that", " ", "satisfies", " ", "tau0"}], ">", "72"}], 
+   ",", 
+   RowBox[{"thus", " ", "determining", " ", "B_robust"}]}], "*)"}]], "Input",
+ CellChangeTimes->{{3.9408823369575443`*^9, 3.940882357028344*^9}, {
+  3.9408823903988543`*^9, 3.940882398597019*^9}, {3.940882532878169*^9, 
+  3.9408825479942493`*^9}, {3.9408832946530976`*^9, 
+  3.9408833027327247`*^9}},ExpressionUUID->"77b1ce05-1cb6-43d4-aca5-\
+7a485f4dd35c"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+   "Kernel", " ", "needs", " ", "to", " ", "be", " ", "exited", " ", "before",
+     " ", "calculating"}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"\[Gamma]", "=", "4.81"}], ";", 
+    RowBox[{"\[Delta]", "=", "0.0289"}], ";", 
+    RowBox[{"m", "=", "2"}], ";", 
+    RowBox[{"\[Alpha]", "=", "0.0395"}], ";", 
+    RowBox[{"\[Beta]", "=", "0.6"}], ";", 
+    RowBox[{"\[Beta]c", "=", "0.0451"}], ";", 
+    RowBox[{"ka", "=", "1.316"}], ";", 
+    RowBox[{"kb", "=", "0.045"}], ";", 
+    RowBox[{"pr", "=", "1.77"}], ";", 
+    RowBox[{"pc", "=", "1.23"}], ";", 
+    RowBox[{"n1", "=", "2"}], ";", 
+    RowBox[{"n2", "=", "1"}], ";", 
+    RowBox[{"i", "=", "1"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"b", "=", "1.3"}], ";", 
+    RowBox[{"(*", 
+     RowBox[{
+     "iteratively", " ", "taking", " ", "the", " ", "value", " ", "b", " ", 
+      "in", " ", "B_stable"}], "*)"}], "\[IndentingNewLine]", 
+    RowBox[{"NSolve", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{
+         RowBox[{
+          RowBox[{"\[Gamma]", "*", "n"}], "-", 
+          RowBox[{"\[Delta]", "*", "a"}]}], "\[Equal]", "0"}], ",", 
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{"\[Alpha]", "+", "\[Beta]"}], ")"}], "*", 
+            FractionBox[
+             RowBox[{
+              SuperscriptBox[
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"ka", "*", "a"}], "+", "1"}], ")"}], "n1"], "+", 
+              SuperscriptBox[
+               RowBox[{"(", 
+                FractionBox["pr", "\[Delta]"], ")"}], "n1"]}], 
+             RowBox[{
+              RowBox[{
+               SuperscriptBox[
+                RowBox[{"(", 
+                 RowBox[{
+                  RowBox[{"ka", "*", "a"}], "+", "1"}], ")"}], "n1"], "*", 
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"kb", "*", "b"}], "+", "1"}], ")"}]}], "+", 
+              SuperscriptBox[
+               RowBox[{"(", 
+                FractionBox["pr", "\[Delta]"], ")"}], "n1"]}]]}], "-", 
+           "\[Beta]", "-", 
+           RowBox[{"\[Beta]c", "*", 
+            FractionBox[
+             RowBox[{"i", "*", 
+              SuperscriptBox[
+               RowBox[{"(", 
+                FractionBox["pc", "\[Delta]"], ")"}], "n2"]}], 
+             RowBox[{
+              RowBox[{"i", "*", 
+               SuperscriptBox[
+                RowBox[{"(", 
+                 FractionBox["pc", "\[Delta]"], ")"}], "n2"]}], "+", 
+              SuperscriptBox[
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"ka", "*", "a"}], "+", "1"}], ")"}], "n2"]}]]}]}], 
+          ")"}], "\[Equal]", "0"}]}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"a", ",", "n"}], "}"}]}], "]"}]}]}]}]], "Input",
+ CellChangeTimes->{{3.9408826206620502`*^9, 3.9408826704410067`*^9}, 
+   3.9408830996864796`*^9, 3.94088343082673*^9},
+ CellLabel->"In[1]:=",ExpressionUUID->"691df9df-cb0e-4560-9671-9ed88c5bc8a8"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"a", "\[Rule]", "237.86922210650786`"}], ",", 
+     RowBox[{"n", "\[Rule]", "1.4291934550682075`"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"a", "\[Rule]", "74.1703052152631`"}], ",", 
+     RowBox[{"n", "\[Rule]", "0.4456386321665496`"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"a", "\[Rule]", "4.2260449271540335`"}], ",", 
+     RowBox[{"n", "\[Rule]", "0.02539141338768224`"}]}], "}"}]}], 
+  "}"}]], "Output",
+ CellChangeTimes->{3.9408826866372476`*^9, 3.940883109834629*^9, 
+  3.9408834373760724`*^9},
+ CellLabel->"Out[2]=",ExpressionUUID->"bdcd8dac-44ba-4858-afda-ed5b3c4db3a6"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Ga", "=", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{"\[Alpha]", "+", "\[Beta]"}], ")"}], "*", 
+      FractionBox[
+       RowBox[{
+        SuperscriptBox[
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"ka", "*", "a"}], "+", "1"}], ")"}], "n1"], "+", 
+        SuperscriptBox[
+         RowBox[{"(", 
+          FractionBox["pr", "\[Delta]"], ")"}], "n1"]}], 
+       RowBox[{
+        RowBox[{
+         SuperscriptBox[
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"ka", "*", "a"}], "+", "1"}], ")"}], "n1"], "*", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"kb", "*", "b"}], "+", "1"}], ")"}]}], "+", 
+        SuperscriptBox[
+         RowBox[{"(", 
+          FractionBox["pr", "\[Delta]"], ")"}], "n1"]}]]}], "-", "\[Beta]", 
+     "-", 
+     RowBox[{"\[Beta]c", "*", 
+      FractionBox[
+       RowBox[{"i", "*", 
+        SuperscriptBox[
+         RowBox[{"(", 
+          FractionBox["pc", "\[Delta]"], ")"}], "n2"]}], 
+       RowBox[{
+        RowBox[{"i", "*", 
+         SuperscriptBox[
+          RowBox[{"(", 
+           FractionBox["pc", "\[Delta]"], ")"}], "n2"]}], "+", 
+        SuperscriptBox[
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"ka", "*", "a"}], "+", "1"}], ")"}], "n2"]}]]}]}], ")"}]}],
+   "\:ff1b"}]], "Input",
+ CellChangeTimes->{{3.940882804146171*^9, 
+  3.9408828106543255`*^9}},ExpressionUUID->"5b81dfcc-4127-4ee9-97e1-\
+bdfdb5d06e0b"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Ga1", "=", 
+   RowBox[{"D", "[", 
+    RowBox[{"Ga", ",", "a"}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.940882818928356*^9, 
+  3.940882838334672*^9}},ExpressionUUID->"7a19bf7b-27c9-45f7-a494-\
+640df09d1cf3"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"a", "=", "74.1703052152631`"}], ";", 
+   RowBox[{"n", "=", "0.4456386321665496`"}], ";"}], 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"Find", " ", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"E", "^"}], "*"}], "}"}], " ", "using", " ", "Ga1"}], "<", 
+    "0"}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"f1", "=", 
+   RowBox[{"-", 
+    FractionBox[
+     RowBox[{"b", " ", "ka", " ", 
+      SuperscriptBox[
+       RowBox[{"(", 
+        RowBox[{"1", "+", 
+         RowBox[{"a", " ", "ka"}]}], ")"}], 
+       RowBox[{
+        RowBox[{"-", "1"}], "+", "n1"}]], " ", "kb", " ", "n1", " ", 
+      RowBox[{"(", 
+       RowBox[{"\[Alpha]", "+", "\[Beta]"}], ")"}], " ", 
+      SuperscriptBox[
+       RowBox[{"(", 
+        FractionBox["pr", "\[Delta]"], ")"}], "n1"]}], 
+     SuperscriptBox[
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{
+         SuperscriptBox[
+          RowBox[{"(", 
+           RowBox[{"1", "+", 
+            RowBox[{"a", " ", "ka"}]}], ")"}], "n1"], " ", 
+         RowBox[{"(", 
+          RowBox[{"1", "+", 
+           RowBox[{"b", " ", "kb"}]}], ")"}]}], "+", 
+        SuperscriptBox[
+         RowBox[{"(", 
+          FractionBox["pr", "\[Delta]"], ")"}], "n1"]}], ")"}], "2"]]}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"g1", "=", 
+   RowBox[{"-", 
+    FractionBox[
+     RowBox[{"i", " ", "ka", " ", 
+      SuperscriptBox[
+       RowBox[{"(", 
+        RowBox[{"1", "+", 
+         RowBox[{"a", " ", "ka"}]}], ")"}], 
+       RowBox[{
+        RowBox[{"-", "1"}], "+", "n2"}]], " ", "n2", " ", "\[Beta]c", " ", 
+      SuperscriptBox[
+       RowBox[{"(", 
+        FractionBox["pc", "\[Delta]"], ")"}], "n2"]}], 
+     SuperscriptBox[
+      RowBox[{"(", 
+       RowBox[{
+        SuperscriptBox[
+         RowBox[{"(", 
+          RowBox[{"1", "+", 
+           RowBox[{"a", " ", "ka"}]}], ")"}], "n2"], "+", 
+        RowBox[{"i", " ", 
+         SuperscriptBox[
+          RowBox[{"(", 
+           FractionBox["pc", "\[Delta]"], ")"}], "n2"]}]}], ")"}], "2"]]}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"F", "=", 
+   RowBox[{"n", 
+    RowBox[{"(", 
+     RowBox[{"1", "-", 
+      SuperscriptBox["n", "m"]}], ")"}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"NSolve", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"-", 
+        SuperscriptBox["F", "2"]}], " ", 
+       SuperscriptBox["f1", "2"], " ", 
+       SuperscriptBox["\[Gamma]", "2"]}], "+", 
+      RowBox[{
+       SuperscriptBox["F", "2"], " ", 
+       SuperscriptBox["g1", "2"], " ", 
+       SuperscriptBox["\[Gamma]", "2"]}], "+", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"-", "2"}], " ", "F", " ", "g1", " ", "\[Gamma]"}], "+", 
+         SuperscriptBox["\[Delta]", "2"]}], ")"}], " ", 
+       SuperscriptBox["\[Omega]", "2"]}], "+", 
+      SuperscriptBox["\[Omega]", "4"]}], "\[Equal]", "0"}], ",", "\[Omega]"}],
+    "]"}], 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{
+    "Calculate", " ", "\[Omega]", " ", "and", " ", "select", " ", "the", " ", 
+     "value", " ", "of", " ", "\[Omega]"}], ">", "0"}], "*)"}]}]}], "Input",
+ CellChangeTimes->{{3.9408826206620502`*^9, 3.9408826704410067`*^9}, {
+  3.9408827419144883`*^9, 3.9408827760402107`*^9}, {3.9408828418130074`*^9, 
+  3.940882851247138*^9}, {3.9408831185053473`*^9, 3.940883124642374*^9}, {
+  3.940883488247492*^9, 3.9408835098206954`*^9}},
+ CellLabel->"In[4]:=",ExpressionUUID->"5650911f-00e7-475f-a16b-454bea96ec24"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"\[Omega]", "\[Rule]", 
+     RowBox[{"-", "0.006371075084319425`"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\[Omega]", "\[Rule]", 
+     RowBox[{"0.`", "\[VeryThinSpace]", "-", 
+      RowBox[{"0.03621168357166451`", " ", "\[ImaginaryI]"}]}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\[Omega]", "\[Rule]", 
+     RowBox[{"0.`", "\[VeryThinSpace]", "+", 
+      RowBox[{"0.03621168357166451`", " ", "\[ImaginaryI]"}]}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\[Omega]", "\[Rule]", "0.006371075084319424`"}], "}"}]}], 
+  "}"}]], "Output",
+ CellChangeTimes->{3.940883518617688*^9},
+ CellLabel->"Out[8]=",ExpressionUUID->"e558ebbc-f758-4c6d-8715-59a5cfca0eb2"]
+}, Open  ]],
+
+Cell[BoxData["\[IndentingNewLine]"], "Input",
+ CellChangeTimes->{
+  3.9408829746039267`*^9},ExpressionUUID->"39133276-cf23-4552-8802-\
+c2a87f24c077"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"\[Omega]", "=", "0.006371075084319424`"}], ";", 
+  RowBox[{"(*", 
+   RowBox[{
+   "Substitute", " ", "\[Omega]", " ", "to", " ", "calculate", " ", "tau0"}], 
+   "*)"}], "\[IndentingNewLine]", 
+  RowBox[{"tau0", "=", 
+   FractionBox[
+    RowBox[{"ArcCos", "[", 
+     FractionBox[
+      RowBox[{
+       RowBox[{"F", " ", "g1", " ", "\[Gamma]"}], "-", 
+       SuperscriptBox["\[Omega]", "2"]}], 
+      RowBox[{"F", " ", "f1", " ", "\[Gamma]"}]], "]"}], 
+    "\[Omega]"]}]}]], "Input",
+ CellChangeTimes->{{3.94088297756536*^9, 3.9408830558608127`*^9}, 
+   3.9408831365526285`*^9, 3.9408835252255597`*^9},
+ CellLabel->"In[9]:=",ExpressionUUID->"d7d4f6bb-fa5f-4955-887f-7bd06ad8cf51"],
+
+Cell[BoxData["97.19304044221032`"], "Output",
+ CellChangeTimes->{{3.940883044389801*^9, 3.9408830575078344`*^9}, 
+   3.9408831380322123`*^9, 3.9408835266541758`*^9},
+ CellLabel->"Out[9]=",ExpressionUUID->"c5e35d16-1c79-4c17-bfb5-313e9f377216"]
+}, Open  ]],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.9408831779886274`*^9, 3.940883178160903*^9}, {
+  3.940883471348895*^9, 
+  3.940883471521675*^9}},ExpressionUUID->"e2b99993-c00a-4e26-9f8d-\
+26be6337da27"],
+
+Cell[BoxData[
+ RowBox[{"(*", 
+  RowBox[{
+   RowBox[{
+   "By", " ", "iteratively", " ", "taking", " ", "the", " ", "value", " ", 
+    "b"}], ",", 
+   RowBox[{
+    RowBox[{"we", " ", "can", " ", "calculate", " ", "B_robust"}], "=", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{"1.26", ",", "1.37"}], ")"}], "U", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{"3.3", ",", "4.1"}], ")"}], ".", " ", "By"}], " ", "choosing",
+       " ", "b"}], "=", "1.3"}]}], ",", 
+   RowBox[{
+    RowBox[{"we", " ", "can", " ", "calculate", " ", 
+     RowBox[{"E_l", "^"}]}], "*=", 
+    RowBox[{"(", 
+     RowBox[{"4.23", ",", "0.025"}], ")"}]}]}], "*)"}]], "Input",
+ CellChangeTimes->{{3.9408831809623775`*^9, 3.940883266053031*^9}, {
+  3.9408834142523484`*^9, 
+  3.940883465514882*^9}},ExpressionUUID->"7d9dbd09-1e5c-43ad-a5f9-\
+454911657929"],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.9408833418002467`*^9, 
+  3.940883367737111*^9}},ExpressionUUID->"cf6060aa-a1b2-4452-a408-\
+243fb8084a13"]
+},
+WindowSize->{1520, 781},
+WindowMargins->{{Automatic, 152}, {-138, Automatic}},
+FrontEndVersion->"11.3 for Microsoft Windows (64-bit) (2018\:5e743\:670828\
+\:65e5)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 480, 14, 28, "Input",ExpressionUUID->"7efd3672-e8d1-4f89-b1b9-89618668868e"],
+Cell[1041, 36, 3672, 98, 163, "Input",ExpressionUUID->"feab0595-0d10-4c36-9738-bcf827a051f5"],
+Cell[CellGroupData[{
+Cell[4738, 138, 980, 28, 45, "Input",ExpressionUUID->"dbdfa99a-8c2b-456f-8634-ef12e4ac7a29"],
+Cell[5721, 168, 82534, 1981, 428, "Output",ExpressionUUID->"29aa8bc1-ff3a-420b-9863-007ce8abf69a"]
+}, Open  ]],
+Cell[88270, 2152, 287, 7, 28, "Input",ExpressionUUID->"96022b68-7a4c-4f2c-bbf4-7f33167d8d16"],
+Cell[88560, 2161, 149, 3, 48, "Input",ExpressionUUID->"df9a5116-5fc3-4fd1-9d7b-5dc4aeb19ec0"],
+Cell[88712, 2166, 800, 17, 28, "Input",ExpressionUUID->"77b1ce05-1cb6-43d4-aca5-7a485f4dd35c"],
+Cell[CellGroupData[{
+Cell[89537, 2187, 3104, 83, 155, "Input",ExpressionUUID->"691df9df-cb0e-4560-9671-9ed88c5bc8a8"],
+Cell[92644, 2272, 703, 18, 32, "Output",ExpressionUUID->"bdcd8dac-44ba-4858-afda-ed5b3c4db3a6"]
+}, Open  ]],
+Cell[93362, 2293, 1490, 48, 77, "Input",ExpressionUUID->"5b81dfcc-4127-4ee9-97e1-bdfdb5d06e0b"],
+Cell[94855, 2343, 250, 7, 45, "Input",ExpressionUUID->"7a19bf7b-27c9-45f7-a494-640df09d1cf3"],
+Cell[CellGroupData[{
+Cell[95130, 2354, 3530, 107, 265, "Input",ExpressionUUID->"5650911f-00e7-475f-a16b-454bea96ec24"],
+Cell[98663, 2463, 737, 18, 32, "Output",ExpressionUUID->"e558ebbc-f758-4c6d-8715-59a5cfca0eb2"]
+}, Open  ]],
+Cell[99415, 2484, 149, 3, 48, "Input",ExpressionUUID->"39133276-cf23-4552-8802-c2a87f24c077"],
+Cell[CellGroupData[{
+Cell[99589, 2491, 712, 18, 91, "Input",ExpressionUUID->"d7d4f6bb-fa5f-4955-887f-7bd06ad8cf51"],
+Cell[100304, 2511, 243, 3, 32, "Output",ExpressionUUID->"c5e35d16-1c79-4c17-bfb5-313e9f377216"]
+}, Open  ]],
+Cell[100562, 2517, 203, 4, 28, "Input",ExpressionUUID->"e2b99993-c00a-4e26-9f8d-26be6337da27"],
+Cell[100768, 2523, 849, 24, 28, "Input",ExpressionUUID->"7d9dbd09-1e5c-43ad-a5f9-454911657929"],
+Cell[101620, 2549, 154, 3, 28, "Input",ExpressionUUID->"cf6060aa-a1b2-4452-a408-243fb8084a13"]
+}
+]
+*)
+
